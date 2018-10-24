@@ -1,0 +1,329 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta37.dtd" >
+   <PATCH nodename="C:\Users\vadim\Dropbox (Mathrioshka)\Teaching\PFC\vvvv\_Networks.v4p" systemname="_Networks" filename="C:\Users\vadim\Dropbox (Mathrioshka)\Teaching\PFC\vvvv\_Networks.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="8292" top="2172" width="13332" height="9132">
+   </BOUNDS>
+   <PACK Name="dx11" Version="1.3.1">
+   </PACK>
+   <PACK Name="addonpack" Version="36.0.0">
+   </PACK>
+   <NODE systemname="IP (Network)" nodename="IP (Network)" componentmode="Hidden" id="1">
+   <BOUNDS type="Node" left="1080" top="948" width="5124" height="276">
+   </BOUNDS>
+   <PIN pinname="IP" visible="1">
+   </PIN>
+   <PIN pinname="Subnet Mask" visible="1">
+   </PIN>
+   <PIN pinname="Standard Gateway" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="GetSlice (String)" nodename="GetSlice (String)" componentmode="Hidden" id="2">
+   <BOUNDS type="Node" left="6744" top="2436" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Index" visible="1" slicecount="1" values="11">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="IP" dstnodeid="2" dstpinname="Input">
+   </LINK>
+   <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="4">
+   <BOUNDS type="Node" left="6744" top="3060" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6744" top="3060" width="1440" height="360">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Current IP|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="2" srcpinname="Output" dstnodeid="4" dstpinname="Input String">
+   </LINK>
+   <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="5">
+   <BOUNDS type="Node" left="6132" top="5292" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6132" top="5292" width="2172" height="5028">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="20">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="IP">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="IP" dstnodeid="5" dstpinname="Input String">
+   </LINK>
+   <NODE systemname="Ping (Network)" nodename="Ping (Network)" componentmode="Hidden" id="6">
+   <BOUNDS type="Node" left="10044" top="2532" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Reachable" visible="1">
+   </PIN>
+   <PIN pinname="IP" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="7">
+   <BOUNDS type="Node" left="3768" top="5292" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3768" top="5292" width="2172" height="5028">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="20">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Subnet Mask|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="Subnet Mask" dstnodeid="7" dstpinname="Input String">
+   </LINK>
+   <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="9">
+   <BOUNDS type="Node" left="1464" top="5280" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1464" top="5280" width="2172" height="5028">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="20">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Standard Gateway|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="Standard Gateway" dstnodeid="9" dstpinname="Input String">
+   </LINK>
+   <NODE systemname="FindExternalIP" filename="modules\FindExternalIP.v4p" nodename="modules\FindExternalIP.v4p" componentmode="Hidden" id="17">
+   <BOUNDS type="Node" left="7368" top="1997" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5572" top="444" width="3592" height="6292">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15276" top="3096" width="3660" height="6924">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="Standard Gateway" dstnodeid="17" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="17" srcpinname="Former Slice" dstnodeid="2" dstpinname="Index">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="18">
+   <BOUNDS type="Node" left="10044" top="3612" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="10044" top="3612" width="528" height="1404">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Reachable">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Reachable" dstnodeid="18" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="19">
+   <BOUNDS type="Node" left="10056" top="816" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="10056" top="816" width="1308" height="1128">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Input String" slicecount="3" values="ya.ru,google.com,localhost">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="19" srcpinname="Output String" dstnodeid="6" dstpinname="IP">
+   </LINK>
+   <NODE systemname="HTTPGet (Network)" filename="%VVVV%\lib\packs\VL.CoreLib.VVVV.0.93.21-g99c25bebaf\vvvv\nodes\vl\VVVV.Network.HTTP.vl" nodename="HTTPGet (Network)" componentmode="Hidden" id="20">
+   <BOUNDS type="Node" left="11856" top="3684" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="URL" visible="1">
+   </PIN>
+   <PIN pinname="Status" visible="1">
+   </PIN>
+   <PIN pinname="Header" visible="1">
+   </PIN>
+   <PIN pinname="Body" visible="1">
+   </PIN>
+   <PIN pinname="In Progress" visible="1">
+   </PIN>
+   <PIN pinname="On Completed" visible="1">
+   </PIN>
+   <PIN pinname="Refresh" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="22">
+   <BOUNDS type="Box" left="11844" top="2712" width="2352" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="11844" top="2712" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="https://ya.ru">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="https://vvvv.org">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="22" srcpinname="Output String" dstnodeid="20" dstpinname="URL">
+   </LINK>
+   <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="23">
+   <BOUNDS type="Node" left="11868" top="4860" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11868" top="4860" width="792" height="240">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Status">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="20" srcpinname="Status" dstnodeid="23" dstpinname="Input String">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="24">
+   <BOUNDS type="Box" left="12228" top="5952" width="1812" height="408">
+   </BOUNDS>
+   <BOUNDS type="Node" left="12228" top="5952" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Header">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="20" srcpinname="Header" dstnodeid="24" dstpinname="Input String">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="25">
+   <BOUNDS type="Box" left="14244" top="5892" width="2580" height="588">
+   </BOUNDS>
+   <BOUNDS type="Node" left="14244" top="5892" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Body">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="20" srcpinname="Body" dstnodeid="25" dstpinname="Input Node">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="27">
+   <BOUNDS type="Box" left="17184" top="4872" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="17184" top="4872" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|In Progress|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="20" srcpinname="In Progress" dstnodeid="27" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="28">
+   <BOUNDS type="Box" left="18240" top="4872" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="18240" top="4872" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|On Completed|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="20" srcpinname="On Completed" dstnodeid="28" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="29">
+   <BOUNDS type="Node" left="15468" top="2472" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="15468" top="2472" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Refresh">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="29" srcpinname="Y Output Value" dstnodeid="20" dstpinname="Refresh">
+   </LINK>
+   <NODE systemname="AsString (Raw)" nodename="AsString (Raw)" componentmode="Hidden" id="32">
+   <BOUNDS type="Node" left="14232" top="6936" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Encoding" slicecount="1" values="utf-8" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="25" srcpinname="Output Node" dstnodeid="32" dstpinname="Input">
+   </LINK>
+   <NODE systemname="HTMLTexture (EX9.Texture String)" filename="%VVVV%\addonpack\lib\nodes\modules\EX9\HTMLTexture (EX9.Texture String).v4p" nodename="HTMLTexture (EX9.Texture String)" componentmode="Hidden" id="33">
+   <BOUNDS type="Node" left="14412" top="8304" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="14412" top="8304" width="2400" height="2400">
+   </BOUNDS>
+   <PIN pinname="HTML" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Base Url" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="32" srcpinname="Output" dstnodeid="33" dstpinname="HTML">
+   </LINK>
+   <NODE systemname="Preview (EX9.Texture)" filename="%VVVV%\addonpack\lib\nodes\modules\TextureFX\misc\Preview\Preview (EX9.Texture).v4p" nodename="Preview (EX9.Texture)" componentmode="Hidden" id="36">
+   <BOUNDS type="Node" left="14412" top="9180" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="33" srcpinname="Output" dstnodeid="36" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="22" srcpinname="Output String" dstnodeid="33" dstpinname="Base Url">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="38">
+   <BOUNDS type="Box" left="14868" top="5388" width="1596" height="276">
+   </BOUNDS>
+   <BOUNDS type="Node" left="14868" top="5388" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="utf-8">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|System Default|">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Encoding">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="38" srcpinname="Output Enum" dstnodeid="32" dstpinname="Encoding">
+   </LINK>
+   </PATCH>
