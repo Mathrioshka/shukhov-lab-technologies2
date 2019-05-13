@@ -23,7 +23,7 @@ void loop()
       sensorValue = atoi(strValue);  // use atoi to convert the string to an int
       index = 0;
     }
-  }
 
-  Serial.println(sensorValue);
+    Serial.println(strValue);
+  }
 }
