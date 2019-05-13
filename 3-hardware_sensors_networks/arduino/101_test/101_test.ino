@@ -15,4 +15,6 @@ void loop() {
   if (i > 100) {
     i = 0;
   }
+
+  delay(1000);
 }

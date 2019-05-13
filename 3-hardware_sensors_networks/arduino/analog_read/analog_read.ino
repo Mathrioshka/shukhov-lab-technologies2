@@ -3,7 +3,7 @@ int val = 0;
 
 void setup()
 {
-  Serial.begin(115200);
+  Serial.begin(57600);
 }
 
 void loop()
